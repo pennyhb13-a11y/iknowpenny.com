@@ -4,7 +4,7 @@
 
 const NAV_HTML = `
 <nav>
-  <a href="index.html" class="nav-logo">I Know <span>Penny</span></a>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="I Know Penny" style="height:44px;width:auto;display:block;" /></a>
   <button class="hamburger" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -22,7 +22,7 @@ const FOOTER_HTML = `
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="nav-logo">I Know <span style="color:var(--gold)">Penny</span></div>
+        <a href="index.html"><img src="images/logo.png" alt="I Know Penny" style="height:48px;width:auto;display:block;margin-bottom:4px;" /></a>
         <p>Your mortgage expert in Middle Tennessee. Real talk, real rates, real fast. NMLS #111937</p>
         <div style="margin-top:18px;display:flex;gap:14px;">
           <a href="https://business.facebook.com/latest/home?nav_ref=bizweb_landing_fb_login_button&business_id=2839252806211317&asset_id=104530249378646" target="_blank" rel="noopener" style="opacity:.7;transition:.2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7">Facebook</a>
