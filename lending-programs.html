@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan Programs — I Know Penny</title>
+  <meta name="description" content="FHA, VA, USDA, Jumbo, Conforming, Renovation and more. Penny finds the right loan for your situation. Franklin, TN. NMLS #111937" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .program-group { margin-bottom: 64px; }
+    .group-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+    }
+    .group-badge {
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+    }
+    .group-header h2 { font-size: 1.5rem; }
+    .group-sub { font-size: 0.88rem; color: var(--gray); }
+
+    .program-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: transform var(--trans), box-shadow var(--trans), border-color var(--trans);
+      position: relative;
+      overflow: hidden;
+    }
+    .program-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--navy);
+      border-radius: 4px 0 0 4px;
+      transition: background var(--trans);
+    }
+    .program-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--gold); }
+    .program-card:hover::before { background: var(--gold); }
+    .program-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .program-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+    .program-card .pill {
+      display: inline-block;
+      background: rgba(200,146,42,0.1);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-bottom: 10px;
+    }
+
+    .limit-bar {
+      background: var(--navy);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.78rem;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .limit-bar strong { color: var(--gold-lt); }
+
+    .callout {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3366 100%);
+      color: var(--white);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      margin-top: 64px;
+    }
+    .callout h2 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 12px; }
+    .callout p { color: rgba(255,255,255,0.7); margin-bottom: 28px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <div class="page-hero">
+    <div class="tag">Loan Programs</div>
+    <h1>A loan for your situation.<br>Whatever that looks like.</h1>
+    <p>No down payment? Low credit? Self-employed? Veteran? There's a program. Penny will find it.</p>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- NO / LOW DOWN PAYMENT -->
+      <div class="program-group fade-in">
+        <div class="group-header">
+          <span class="group-badge">Zero &amp; Low Down</span>
+          <div>
+            <h2>Get in without emptying your savings</h2>
+            <p class="group-sub">Programs designed for buyers who'd rather keep cash in the bank.</p>
+          </div>
+        </div>
+        <div class="grid-3 stagger">
+          <div class="program-card">
+            <div class="pill">0% Down</div>
+            <h3>VA Loan</h3>
+            <p>For active military and veterans. Zero down payment, no PMI, and competitive rates. One of the best deals in lending — if you've earned it.</p>
+          </div>
+          <div class="program-card">
+            <div class="pill">0% Down</div>
+            <h3>USDA Loan</h3>
+            <p>Zero down for eligible rural and suburban properties. If your zip code qualifies, this is a remarkable deal most people never hear about.</p>
+          </div>
+          <div class="program-card">
+            <div class="pill">3.5% Down</div>
+            <h3>FHA Loan</h3>
+            <p>Low down payment, flexible credit requirements, and backed by the federal government. Great for first-time buyers building their financial footing.</p>
+          </div>
+          <div class="program-card">
+            <div class="pill">Down Payment Assist</div>
+            <h3>DPA Programs</h3>
+            <p>Tennessee offers several down payment assistance programs. Penny will tell you what you qualify for — most buyers are surprised by what's available.</p>
+          </div>
+          <div class="program-card">
+            <div class="pill">3–5% Down</div>
+            <h3>5% Down Conforming</h3>
+            <p>Limited savings? This option gets you in without draining your emergency fund, keeping you prepared for the realities of homeownership.</p>
+          </div>
+          <div class="program-card">
+            <div class="pill">HUD Program</div>
+            <h3>HUD Loan</h3>
+            <p>Designed for buyers with imperfect credit or minimal down payment. More flexible underwriting for those who need a second chance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONFORMING LOANS -->
+      <div class="program-group fade-in">
+        <div class="group-header">
+          <span class="group-badge">Conforming Loans</span>
+          <div>
+            <h2>Standard loans, serious savings</h2>
+            <p class="group-sub">The most common loan type — and often the most competitive rates.</p>
+          </div>
+        </div>
+        <div class="limit-bar">📏 Loan limit: <strong>Up to $417,000</strong> &nbsp;·&nbsp; Best for most Middle Tennessee home purchases
+        </div>
+        <div class="grid-3 stagger">
+          <div class="program-card">
+            <div class="pill">20% Down</div>
+            <h3>20% Down Program</h3>
+            <p>Instant equity, no PMI, and the lowest monthly payment. Ideal if you have the savings and want the best long-term position.</p>
+          </div>
+          <div class="program-card">
+            <div class="pill">10% Down</div>
+            <h3>10% Down Program</h3>
+            <p>A balance between building equity and preserving your cash. Popular with buyers who want skin in the game without going all in.</p>
+          </div>
+          <div class="program-card">
+            <div class="pill">5% Down</div>
+            <h3>5% Down Program</h3>
+            <p>For buyers who want to retain savings and still get a solid conventional rate. Smart choice for those keeping cash for repairs and upgrades.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- HIGH BALANCE -->
+      <div class="program-group fade-in">
+        <div class="group-header">
+          <span class="group-badge">High Balance</span>
+          <div>
+            <h2>Bigger home, bigger loan</h2>
+            <p class="group-sub">When the home costs more but you want conventional-style terms.</p>
+          </div>
+        </div>
+        <div class="limit-bar">📏 Loan range: <strong>$418,000 – $625,500</strong> &nbsp;·&nbsp; For higher-priced Tennessee markets</div>
+        <div class="grid-2 stagger">
+          <div class="program-card">
+            <div class="pill">20% Down</div>
+            <h3>20% Down High Balance</h3>
+            <p>Maximum equity, no mortgage insurance, and excellent rates for the high-balance tier. Best if you have the capital and want to minimize carrying costs.</p>
+          </div>
+          <div class="program-card">
+            <div class="pill">10% Down</div>
+            <h3>10% Down High Balance</h3>
+            <p>Split the difference between equity and cash on hand. Good fit for buyers in the Franklin and Brentwood markets.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- JUMBO -->
+      <div class="program-group fade-in">
+        <div class="group-header">
+          <span class="group-badge">Jumbo Loans</span>
+          <div>
+            <h2>Luxury homes deserve serious financing</h2>
+            <p class="group-sub">High-value properties — Penny has options that most lenders don't.</p>
+          </div>
+        </div>
+        <div class="limit-bar">📏 Loan range: <strong>$626,000 – $2,000,000</strong> &nbsp;·&nbsp; Custom underwriting available</div>
+        <div class="grid-2 stagger">
+          <div class="program-card">
+            <div class="pill">20% Down</div>
+            <h3>Jumbo 20% Down</h3>
+            <p>Full equity purchase on a premium property. Strong rate options for well-qualified buyers.</p>
+          </div>
+          <div class="program-card">
+            <div class="pill">10% Down</div>
+            <h3>Jumbo 10% Down</h3>
+            <p>Preserve capital on a high-value purchase. More flexibility than most jumbo products on the market.</p>
+          </div>
+          <div class="program-card">
+            <div class="pill">Interest Only</div>
+            <h3>Interest-Only Option</h3>
+            <p>For buyers who want maximum cash flow flexibility during the early years. Popular with high-income buyers who invest aggressively.</p>
+          </div>
+          <div class="program-card">
+            <div class="pill">Asset-Based</div>
+            <h3>Asset Depletion</h3>
+            <p>Self-employed or retired with significant liquid assets? We use your portfolio to qualify, not just your tax return. A game-changer for the right buyer.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPECIALTY -->
+      <div class="program-group fade-in">
+        <div class="group-header">
+          <span class="group-badge">Specialty Programs</span>
+          <div>
+            <h2>The programs people don't know to ask about</h2>
+            <p class="group-sub">These are often the best options — and the least advertised.</p>
+          </div>
+        </div>
+        <div class="grid-3 stagger">
+          <div class="program-card">
+            <div class="pill">Renovation</div>
+            <h3>Renovation Loan</h3>
+            <p>Buy the house AND fund the renovations in a single loan. Perfect for fixer-uppers — roll purchase price and rehab costs together.</p>
+          </div>
+          <div class="program-card">
+            <div class="pill">Refinance</div>
+            <h3>HARP Refinance</h3>
+            <p>Can't refinance because you're underwater or just above water? HARP is designed for borrowers current on payments but stuck on a high rate.</p>
+          </div>
+          <div class="program-card">
+            <div class="pill">62+ Homeowners</div>
+            <h3>Reverse Mortgage</h3>
+            <p>For homeowners 62+ who want to eliminate their monthly mortgage payment and access equity. Complex product — Penny will walk you through it honestly.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALLOUT -->
+      <div class="callout fade-in">
+        <h2>Not sure which one fits you?</h2>
+        <p>That's literally what Penny is for. Tell him your situation and he'll find the right fit — no pressure, no upsell.</p>
+        <a href="apply.html" class="btn btn-gold">Start My Application</a>
+        <p style="margin-top:14px;font-size:0.82rem;color:rgba(255,255,255,0.5)">Or call: <a href="tel:6158103988" style="color:var(--gold-lt)">615-810-3988</a></p>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
