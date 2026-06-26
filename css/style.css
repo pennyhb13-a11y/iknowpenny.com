@@ -319,6 +319,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   opacity: 0.8;
 }
 
+.question-panel {
+  margin-top: 24px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brass);
+  border-radius: 4px;
+  background: var(--paper-dim);
+  max-width: 560px;
+}
+.question-panel form .field { margin-bottom: 16px; }
+.question-panel .btn { display: inline-flex; }
+
 .hero-side {
   border: 1px solid var(--line);
   background: var(--paper-dim);
@@ -659,6 +671,35 @@ footer {
 }
 .footer-grid a { text-decoration: underline; text-decoration-color: rgba(247,244,236,0.3); }
 .footer-grid a:hover { color: var(--brass-light); text-decoration-color: var(--brass-light); }
+
+.footer-addresses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-on-dark);
+}
+@media (max-width: 700px) {
+  .footer-addresses { grid-template-columns: 1fr; gap: 16px; }
+}
+
+.footer-addr-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brass-light);
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+.footer-addr-text {
+  display: block;
+  font-size: 12.5px;
+  line-height: 1.6;
+  opacity: 0.75;
+}
 .footer-disclosure {
   margin-top: 22px;
   font-size: 11.5px;

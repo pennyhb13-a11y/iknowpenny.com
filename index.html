@@ -14,7 +14,7 @@
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a href="index.html" class="brand">
-      I KNOW PENNY <span class="brand-mark">NMLS #111937</span>
+      I KNOW PENNY <span class="brand-mark">NMLS #111937 · #56921</span>
     </a>
     <nav class="topbar-nav">
       <a href="index.html">Home</a>
@@ -53,21 +53,46 @@
 
         <div class="hero-credential">
           <strong>22 years originating mortgages.</strong> Over a billion dollars funded, lifetime.<br>
-          Licensed in Tennessee &middot; NMLS #111937 &middot; Crosspoint Financial
+          Licensed in Tennessee &middot; NMLS #111937 (Penny Psencik) &middot; NMLS #56921 (Crosspoint Financial)
         </div>
 
         <div class="hero-ctas">
           <a href="apply.html" class="btn btn-brass">Start My Application →</a>
           <a href="lending-programs.html" class="btn btn-ghost">See Loan Programs</a>
+          <button type="button" class="btn btn-ghost" id="question-toggle">I just have a question</button>
         </div>
         <p class="hero-microcopy">10 minutes &middot; no credit pull to start &middot; no commitment</p>
+
+        <div class="question-panel" id="question-panel" hidden>
+          <p style="font-size:14px; color:var(--ink-soft); margin-bottom:16px;">No application, no pressure — just ask. Penny answers these directly.</p>
+          <form action="https://formspree.io/f/xqejvrgy" method="POST" id="question-form">
+            <input type="hidden" name="_subject" value="Quick Question — I Know Penny">
+            <input type="hidden" name="lead_source" value="iknowpenny.com/homepage-question">
+            <div class="field-row">
+              <div class="field">
+                <label for="qname">Your name <span class="req">*</span></label>
+                <input type="text" id="qname" name="name" required>
+              </div>
+              <div class="field">
+                <label for="qcontact">Email or phone <span class="req">*</span></label>
+                <input type="text" id="qcontact" name="contact" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="qquestion">Your question <span class="req">*</span></label>
+              <textarea id="qquestion" name="question" rows="3" required style="width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:3px; font-family:var(--body); font-size:15.5px;" placeholder="What do you want to know?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Question →</button>
+            <span id="question-success" class="mono" style="display:none; color:var(--vault); font-size:13.5px; margin-left:14px;">Sent — Penny will follow up shortly.</span>
+          </form>
+        </div>
       </div>
 
       <div class="hero-side">
         <div class="hero-side-row"><span class="label">No credit pull to start</span><span class="value">✓</span></div>
         <div class="hero-side-row"><span class="label">Licensed &amp; NMLS verified</span><span class="value">✓</span></div>
         <div class="hero-side-row"><span class="label">Based in</span><span class="value">Franklin, TN</span></div>
-        <div class="hero-side-row"><span class="label">Loan programs</span><span class="value">9+</span></div>
+        <div class="hero-side-row"><span class="label">Loan programs</span><span class="value">Broker access</span></div>
         <div class="hero-side-row"><span class="label">Years originating</span><span class="value">22</span></div>
         <div class="hero-side-row"><span class="label">Lifetime funded</span><span class="value">$1B+</span></div>
       </div>
@@ -78,7 +103,7 @@
   <div class="compliance-strip">
     <div class="wrap">
       <span class="eho"><span class="eho-icon">⌂</span> Equal Housing Opportunity</span>
-      <span>NMLS #111937 &middot; Licensed in Tennessee</span>
+      <span>NMLS #111937 (Penny Psencik) &middot; #56921 (Crosspoint) &middot; Licensed in Tennessee</span>
       <span>Crosspoint Financial, Inc.</span>
       <span>🔒 Secure (HTTPS) application</span>
     </div>
@@ -212,8 +237,8 @@
         <span class="cred-label">Funded, lifetime</span>
       </div>
       <div class="cred-item">
-        <span class="cred-num">9+</span>
-        <span class="cred-label">Loan programs</span>
+        <span class="cred-num">Broker</span>
+        <span class="cred-label">Access to multiple lenders</span>
       </div>
       <div class="cred-item">
         <span class="cred-num">TN</span>
@@ -280,8 +305,18 @@
         <a href="tel:6158103988">615-810-3988</a>
       </span>
     </div>
+    <div class="footer-addresses">
+      <div>
+        <span class="footer-addr-label">Licensed Address — Penny Psencik, NMLS #111937</span>
+        <span class="footer-addr-text">1128 Olde Cameron Lane, Franklin, TN 37067 &middot; 615-810-3988</span>
+      </div>
+      <div>
+        <span class="footer-addr-label">Main Branch — Crosspoint Financial, Inc., NMLS #56921</span>
+        <span class="footer-addr-text">9121 West Russell Rd, Ste #113, Las Vegas, NV 89148 &middot; 888-480-6140</span>
+      </div>
+    </div>
     <p class="footer-disclosure">
-      Penny Psencik &middot; NMLS #111937 &middot; Crosspoint Financial, Inc. Equal Housing Opportunity. This is not a commitment to lend. Programs, rates, and loan limits are subject to change and are verified per transaction. Loan limits shown reflect 2026 FHFA/HUD figures for Williamson County, TN and are provided for general information only.
+      Penny Psencik &middot; NMLS #111937 &middot; Crosspoint Financial, Inc., NMLS #56921. Equal Housing Opportunity. This is not a commitment to lend. Programs, rates, and loan limits are subject to change and are verified per transaction. Loan limits shown reflect 2026 FHFA/HUD figures for Williamson County, TN and are provided for general information only.
     </p>
   </div>
 </footer>
