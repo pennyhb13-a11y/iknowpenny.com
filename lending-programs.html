@@ -1,278 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loan Programs — I Know Penny</title>
-  <meta name="description" content="FHA, VA, USDA, Jumbo, Conforming, Renovation and more. Penny finds the right loan for your situation. Franklin, TN. NMLS #111937" />
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .program-group { margin-bottom: 64px; }
-    .group-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 28px;
-      padding-bottom: 16px;
-      border-bottom: 2px solid var(--border);
-    }
-    .group-badge {
-      background: var(--navy);
-      color: var(--white);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 50px;
-    }
-    .group-header h2 { font-size: 1.5rem; }
-    .group-sub { font-size: 0.88rem; color: var(--gray); }
-
-    .program-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: transform var(--trans), box-shadow var(--trans), border-color var(--trans);
-      position: relative;
-      overflow: hidden;
-    }
-    .program-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 4px;
-      height: 100%;
-      background: var(--navy);
-      border-radius: 4px 0 0 4px;
-      transition: background var(--trans);
-    }
-    .program-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--gold); }
-    .program-card:hover::before { background: var(--gold); }
-    .program-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
-    .program-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
-    .program-card .pill {
-      display: inline-block;
-      background: rgba(200,146,42,0.1);
-      color: var(--gold);
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 50px;
-      margin-bottom: 10px;
-    }
-
-    .limit-bar {
-      background: var(--navy);
-      color: rgba(255,255,255,0.7);
-      font-size: 0.78rem;
-      padding: 10px 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .limit-bar strong { color: var(--gold-lt); }
-
-    .callout {
-      background: linear-gradient(135deg, var(--navy) 0%, #1a3366 100%);
-      color: var(--white);
-      border-radius: 16px;
-      padding: 48px;
-      text-align: center;
-      margin-top: 64px;
-    }
-    .callout h2 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 12px; }
-    .callout p { color: rgba(255,255,255,0.7); margin-bottom: 28px; max-width: 500px; margin-left: auto; margin-right: auto; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan Programs — I Know Penny</title>
+<meta name="description" content="FHA, VA, USDA, Jumbo, Conforming, Renovation and more. Penny finds the right loan for your situation. Franklin, TN. NMLS #111937.">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div id="nav-placeholder"></div>
+<a href="#main" class="skip-link">Skip to content</a>
 
-  <div class="page-hero">
-    <div class="tag">Loan Programs</div>
-    <h1>A loan for your situation.<br>Whatever that looks like.</h1>
-    <p>No down payment? Low credit? Self-employed? Veteran? There's a program. Penny will find it.</p>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="index.html" class="brand">
+      I KNOW PENNY <span class="brand-mark">NMLS #111937</span>
+    </a>
+    <nav class="topbar-nav">
+      <a href="index.html">Home</a>
+      <a href="lending-programs.html">Loan Programs</a>
+      <a href="resources.html">Resources</a>
+      <a href="get-in-touch.html">Contact</a>
+    </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    <div class="topbar-right">
+      <span class="nmls">Crosspoint Financial · Franklin, TN</span>
+      <a href="tel:6158103988" class="topbar-phone">615-810-3988</a>
+      <a href="apply.html" class="btn btn-primary btn-sm">Start Application</a>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="lending-programs.html">Loan Programs</a>
+  <a href="resources.html">Resources</a>
+  <a href="get-in-touch.html">Contact</a>
+  <a href="apply.html" class="btn btn-brass">Start Application</a>
+</nav>
+
+<main id="main">
+
+  <div class="page-header">
+    <div class="wrap">
+      <span class="eyebrow">Loan Programs</span>
+      <h1>A loan for your situation. Whatever that looks like.</h1>
+      <p class="lede">No down payment? Low credit? Self-employed? Veteran? There's a program — and here's the real rate-sheet, not a sales pitch.</p>
+      <p class="mono" style="font-size:13px; color:var(--ink-soft); margin-top:16px;">22 years originating &middot; over a billion dollars funded, lifetime</p>
+    </div>
   </div>
 
-  <section class="section">
-    <div class="container">
+  <section>
+    <div class="wrap">
 
-      <!-- NO / LOW DOWN PAYMENT -->
-      <div class="program-group fade-in">
-        <div class="group-header">
-          <span class="group-badge">Zero &amp; Low Down</span>
-          <div>
-            <h2>Get in without emptying your savings</h2>
-            <p class="group-sub">Programs designed for buyers who'd rather keep cash in the bank.</p>
-          </div>
+      <div class="ledger-group-label">Zero &amp; Low Down</div>
+      <div class="ledger-table">
+        <div class="ledger-table-head">
+          <span>Program</span><span>Down</span><span>What it's for</span><span style="text-align:right;">Limit / Notes</span>
         </div>
-        <div class="grid-3 stagger">
-          <div class="program-card">
-            <div class="pill">0% Down</div>
-            <h3>VA Loan</h3>
-            <p>For active military and veterans. Zero down payment, no PMI, and competitive rates. One of the best deals in lending — if you've earned it.</p>
-          </div>
-          <div class="program-card">
-            <div class="pill">0% Down</div>
-            <h3>USDA Loan</h3>
-            <p>Zero down for eligible rural and suburban properties. If your zip code qualifies, this is a remarkable deal most people never hear about.</p>
-          </div>
-          <div class="program-card">
-            <div class="pill">3.5% Down</div>
-            <h3>FHA Loan</h3>
-            <p>Low down payment, flexible credit requirements, and backed by the federal government. Great for first-time buyers building their financial footing.</p>
-          </div>
-          <div class="program-card">
-            <div class="pill">Down Payment Assist</div>
-            <h3>DPA Programs</h3>
-            <p>Tennessee offers several down payment assistance programs. Penny will tell you what you qualify for — most buyers are surprised by what's available.</p>
-          </div>
-          <div class="program-card">
-            <div class="pill">3–5% Down</div>
-            <h3>5% Down Conforming</h3>
-            <p>Limited savings? This option gets you in without draining your emergency fund, keeping you prepared for the realities of homeownership.</p>
-          </div>
-          <div class="program-card">
-            <div class="pill">HUD Program</div>
-            <h3>HUD Loan</h3>
-            <p>Designed for buyers with imperfect credit or minimal down payment. More flexible underwriting for those who need a second chance.</p>
-          </div>
+        <div class="ledger-row">
+          <span class="l-program">VA Loan</span>
+          <span class="l-down">0% down</span>
+          <span class="l-desc">For active military and veterans. Zero down, no PMI, competitive rates. One of the best deals in lending — if you've earned it.</span>
+          <span class="l-limit">No hard cap¹</span>
+        </div>
+        <div class="ledger-row">
+          <span class="l-program">USDA Loan</span>
+          <span class="l-down">0% down</span>
+          <span class="l-desc">Zero down for eligible rural and suburban properties. If your zip code qualifies, this is a remarkable deal most people never hear about.</span>
+          <span class="l-limit">Area-based</span>
+        </div>
+        <div class="ledger-row">
+          <span class="l-program">FHA Loan</span>
+          <span class="l-down">3.5% down</span>
+          <span class="l-desc">Low down payment, flexible credit requirements, backed by the federal government. Great for first-time buyers building their financial footing.</span>
+          <span class="l-limit">$1,029,250²</span>
+        </div>
+        <div class="ledger-row">
+          <span class="l-program">DPA Programs</span>
+          <span class="l-down">Varies</span>
+          <span class="l-desc">Tennessee offers several down payment assistance programs. Penny will tell you what you qualify for — most buyers are surprised by what's available.</span>
+          <span class="l-limit">Program-based</span>
+        </div>
+        <div class="ledger-row">
+          <span class="l-program">5% Down Conforming</span>
+          <span class="l-down">3–5% down</span>
+          <span class="l-desc">Limited savings? This option gets you in without draining your emergency fund, keeping you prepared for the realities of homeownership.</span>
+          <span class="l-limit">$832,750</span>
+        </div>
+      </div>
+      <div class="limit-note">
+        ¹ VA-eligible borrowers with full entitlement have no statutory loan cap — what's shown is the practical underwriting ceiling most lenders apply, tied to the conforming loan limit.<br>
+        ² Standard FHA limit is $541,287. Williamson County is FHFA/HUD-designated high-cost for 2026, raising the single-family FHA limit here to $1,029,250.
+      </div>
+
+      <div class="ledger-group-label">Conforming Loans</div>
+      <p style="color:var(--ink-soft); font-size:14.5px; margin-bottom:20px; max-width:640px;">The most common loan type — and often the most competitive rates. Standard limit: <strong style="color:var(--ink);">$832,750</strong> for a single-family home. Williamson County's high-cost designation raises that to <strong style="color:var(--ink);">$1,029,250</strong> for both conventional and FHA financing here.</p>
+      <div class="ledger-table">
+        <div class="ledger-table-head">
+          <span>Program</span><span>Down</span><span>What it's for</span><span style="text-align:right;">Limit</span>
+        </div>
+        <div class="ledger-row">
+          <span class="l-program">20% Down Program</span>
+          <span class="l-down">20% down</span>
+          <span class="l-desc">Instant equity, no PMI, and the lowest monthly payment. Ideal if you have the savings and want the best long-term position.</span>
+          <span class="l-limit">$832,750</span>
+        </div>
+        <div class="ledger-row">
+          <span class="l-program">10% Down Program</span>
+          <span class="l-down">10% down</span>
+          <span class="l-desc">A balance between building equity and preserving your cash. Popular with buyers who want skin in the game without going all in.</span>
+          <span class="l-limit">$832,750</span>
+        </div>
+        <div class="ledger-row">
+          <span class="l-program">5% Down Program</span>
+          <span class="l-down">5% down</span>
+          <span class="l-desc">For buyers who want to retain savings and still get a solid conventional rate. Smart choice for those keeping cash for repairs and upgrades.</span>
+          <span class="l-limit">$832,750</span>
         </div>
       </div>
 
-      <!-- CONFORMING LOANS -->
-      <div class="program-group fade-in">
-        <div class="group-header">
-          <span class="group-badge">Conforming Loans</span>
-          <div>
-            <h2>Standard loans, serious savings</h2>
-            <p class="group-sub">The most common loan type — and often the most competitive rates.</p>
-          </div>
+      <div class="ledger-group-label">High Balance &amp; Jumbo</div>
+      <p style="color:var(--ink-soft); font-size:14.5px; margin-bottom:20px; max-width:640px;">When the home costs more but you want conventional-style terms. Anything above $1,029,250 in Williamson County moves into true jumbo territory.</p>
+      <div class="ledger-table">
+        <div class="ledger-table-head">
+          <span>Program</span><span>Down</span><span>What it's for</span><span style="text-align:right;">Range</span>
         </div>
-        <div class="limit-bar">📏 Loan limit: <strong>Up to $417,000</strong> &nbsp;·&nbsp; Best for most Middle Tennessee home purchases
+        <div class="ledger-row">
+          <span class="l-program">High Balance, 20% Down</span>
+          <span class="l-down">20% down</span>
+          <span class="l-desc">Maximum equity, no mortgage insurance, excellent rates for the high-balance tier above the standard limit.</span>
+          <span class="l-limit">to $1,029,250</span>
         </div>
-        <div class="grid-3 stagger">
-          <div class="program-card">
-            <div class="pill">20% Down</div>
-            <h3>20% Down Program</h3>
-            <p>Instant equity, no PMI, and the lowest monthly payment. Ideal if you have the savings and want the best long-term position.</p>
-          </div>
-          <div class="program-card">
-            <div class="pill">10% Down</div>
-            <h3>10% Down Program</h3>
-            <p>A balance between building equity and preserving your cash. Popular with buyers who want skin in the game without going all in.</p>
-          </div>
-          <div class="program-card">
-            <div class="pill">5% Down</div>
-            <h3>5% Down Program</h3>
-            <p>For buyers who want to retain savings and still get a solid conventional rate. Smart choice for those keeping cash for repairs and upgrades.</p>
-          </div>
+        <div class="ledger-row">
+          <span class="l-program">High Balance, 10% Down</span>
+          <span class="l-down">10% down</span>
+          <span class="l-desc">Split the difference between equity and cash on hand. Good fit for buyers in the Franklin and Brentwood markets.</span>
+          <span class="l-limit">to $1,029,250</span>
         </div>
-      </div>
-
-      <!-- HIGH BALANCE -->
-      <div class="program-group fade-in">
-        <div class="group-header">
-          <span class="group-badge">High Balance</span>
-          <div>
-            <h2>Bigger home, bigger loan</h2>
-            <p class="group-sub">When the home costs more but you want conventional-style terms.</p>
-          </div>
+        <div class="ledger-row">
+          <span class="l-program">Jumbo, 20% Down</span>
+          <span class="l-down">20% down</span>
+          <span class="l-desc">Full equity purchase on a premium property above the conforming limit. Strong rate options for well-qualified buyers.</span>
+          <span class="l-limit">$1.03M+</span>
         </div>
-        <div class="limit-bar">📏 Loan range: <strong>$418,000 – $625,500</strong> &nbsp;·&nbsp; For higher-priced Tennessee markets</div>
-        <div class="grid-2 stagger">
-          <div class="program-card">
-            <div class="pill">20% Down</div>
-            <h3>20% Down High Balance</h3>
-            <p>Maximum equity, no mortgage insurance, and excellent rates for the high-balance tier. Best if you have the capital and want to minimize carrying costs.</p>
-          </div>
-          <div class="program-card">
-            <div class="pill">10% Down</div>
-            <h3>10% Down High Balance</h3>
-            <p>Split the difference between equity and cash on hand. Good fit for buyers in the Franklin and Brentwood markets.</p>
-          </div>
+        <div class="ledger-row">
+          <span class="l-program">Jumbo, 10% Down</span>
+          <span class="l-down">10% down</span>
+          <span class="l-desc">Preserve capital on a high-value purchase. More flexibility than most jumbo products on the market.</span>
+          <span class="l-limit">$1.03M+</span>
+        </div>
+        <div class="ledger-row">
+          <span class="l-program">Jumbo Interest-Only</span>
+          <span class="l-down">Varies</span>
+          <span class="l-desc">Maximum cash flow flexibility during the early years. Popular with high-income buyers who invest aggressively elsewhere.</span>
+          <span class="l-limit">Custom</span>
+        </div>
+        <div class="ledger-row">
+          <span class="l-program">Asset Depletion</span>
+          <span class="l-down">Varies</span>
+          <span class="l-desc">Self-employed or retired with significant liquid assets? Your portfolio qualifies you — not just your tax return.</span>
+          <span class="l-limit">Custom</span>
         </div>
       </div>
 
-      <!-- JUMBO -->
-      <div class="program-group fade-in">
-        <div class="group-header">
-          <span class="group-badge">Jumbo Loans</span>
-          <div>
-            <h2>Luxury homes deserve serious financing</h2>
-            <p class="group-sub">High-value properties — Penny has options that most lenders don't.</p>
-          </div>
+      <div class="ledger-group-label">Specialty Programs</div>
+      <div class="ledger-table">
+        <div class="ledger-table-head">
+          <span>Program</span><span>Down</span><span>What it's for</span><span style="text-align:right;">Notes</span>
         </div>
-        <div class="limit-bar">📏 Loan range: <strong>$626,000 – $2,000,000</strong> &nbsp;·&nbsp; Custom underwriting available</div>
-        <div class="grid-2 stagger">
-          <div class="program-card">
-            <div class="pill">20% Down</div>
-            <h3>Jumbo 20% Down</h3>
-            <p>Full equity purchase on a premium property. Strong rate options for well-qualified buyers.</p>
-          </div>
-          <div class="program-card">
-            <div class="pill">10% Down</div>
-            <h3>Jumbo 10% Down</h3>
-            <p>Preserve capital on a high-value purchase. More flexibility than most jumbo products on the market.</p>
-          </div>
-          <div class="program-card">
-            <div class="pill">Interest Only</div>
-            <h3>Interest-Only Option</h3>
-            <p>For buyers who want maximum cash flow flexibility during the early years. Popular with high-income buyers who invest aggressively.</p>
-          </div>
-          <div class="program-card">
-            <div class="pill">Asset-Based</div>
-            <h3>Asset Depletion</h3>
-            <p>Self-employed or retired with significant liquid assets? We use your portfolio to qualify, not just your tax return. A game-changer for the right buyer.</p>
-          </div>
+        <div class="ledger-row">
+          <span class="l-program">Renovation Loan</span>
+          <span class="l-down">Varies</span>
+          <span class="l-desc">Buy the house and fund the renovations in one loan. Roll purchase price and rehab costs together — built for fixer-uppers.</span>
+          <span class="l-limit">FHA 203(k) / HomeStyle</span>
+        </div>
+        <div class="ledger-row">
+          <span class="l-program">HIRO / FMERR Refinance</span>
+          <span class="l-down">N/A</span>
+          <span class="l-desc">For borrowers current on payments but stuck on a high rate with limited equity — the current high-LTV refinance options.</span>
+          <span class="l-limit">Eligibility-based</span>
+        </div>
+        <div class="ledger-row">
+          <span class="l-program">Reverse Mortgage</span>
+          <span class="l-down">N/A</span>
+          <span class="l-desc">For homeowners 62+ who want to eliminate their monthly mortgage payment and access equity. Complex product — Penny walks you through it honestly.</span>
+          <span class="l-limit">HECM-based</span>
+        </div>
+        <div class="ledger-row">
+          <span class="l-program">Bank Statement Loan</span>
+          <span class="l-down">10–30% down</span>
+          <span class="l-desc">Self-employed and 1099 borrowers qualify off bank deposits instead of tax returns — for when your tax returns understate real income.</span>
+          <span class="l-limit">Non-QM</span>
         </div>
       </div>
 
-      <!-- SPECIALTY -->
-      <div class="program-group fade-in">
-        <div class="group-header">
-          <span class="group-badge">Specialty Programs</span>
-          <div>
-            <h2>The programs people don't know to ask about</h2>
-            <p class="group-sub">These are often the best options — and the least advertised.</p>
-          </div>
-        </div>
-        <div class="grid-3 stagger">
-          <div class="program-card">
-            <div class="pill">Renovation</div>
-            <h3>Renovation Loan</h3>
-            <p>Buy the house AND fund the renovations in a single loan. Perfect for fixer-uppers — roll purchase price and rehab costs together.</p>
-          </div>
-          <div class="program-card">
-            <div class="pill">Refinance</div>
-            <h3>HARP Refinance</h3>
-            <p>Can't refinance because you're underwater or just above water? HARP is designed for borrowers current on payments but stuck on a high rate.</p>
-          </div>
-          <div class="program-card">
-            <div class="pill">62+ Homeowners</div>
-            <h3>Reverse Mortgage</h3>
-            <p>For homeowners 62+ who want to eliminate their monthly mortgage payment and access equity. Complex product — Penny will walk you through it honestly.</p>
-          </div>
-        </div>
+      <div class="trap-note">
+        <strong>Worth knowing</strong>
+        FHA mortgage insurance doesn't work like conventional PMI — on most FHA loans it stays for the life of the loan, not just until you hit 20% equity. If FHA is the right call for you today, ask about the refinance-to-conventional exit plan before you close, not after.
       </div>
 
-      <!-- CALLOUT -->
-      <div class="callout fade-in">
-        <h2>Not sure which one fits you?</h2>
-        <p>That's literally what Penny is for. Tell him your situation and he'll find the right fit — no pressure, no upsell.</p>
-        <a href="apply.html" class="btn btn-gold">Start My Application</a>
-        <p style="margin-top:14px;font-size:0.82rem;color:rgba(255,255,255,0.5)">Or call: <a href="tel:6158103988" style="color:var(--gold-lt)">615-810-3988</a></p>
+      <div style="text-align:center; margin-top:48px;">
+        <p class="lede" style="margin: 0 auto 20px; text-align:center;">Not sure which one fits? That's literally what Penny is for.</p>
+        <a href="apply.html" class="btn btn-brass">Start My Application</a>
+        <a href="tel:6158103988" class="btn btn-ghost" style="margin-left:12px;">Or Call 615-810-3988</a>
       </div>
 
     </div>
   </section>
 
-  <div id="footer-placeholder"></div>
-  <script src="js/components.js"></script>
-  <script src="js/main.js"></script>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <span>I Know Penny &middot; Crosspoint Financial, Inc. &middot; Franklin, TN</span>
+      <span>
+        <a href="index.html">Home</a> &middot;
+        <a href="resources.html">Resources</a> &middot;
+        <a href="apply.html">Apply</a> &middot;
+        <a href="get-in-touch.html">Contact</a> &middot;
+        <a href="privacy.html">Privacy</a>
+      </span>
+    </div>
+    <p class="footer-disclosure">
+      Penny Psencik &middot; NMLS #111937 &middot; Crosspoint Financial, Inc. Equal Housing Opportunity. This is not a commitment to lend. Loan limits shown reflect 2026 FHFA/HUD figures for Williamson County, TN, are subject to change, and are verified per transaction. Rates, programs, and eligibility vary by borrower.
+    </p>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
 </body>
 </html>

@@ -1,487 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apply Now — I Know Penny</title>
-  <meta name="description" content="Start your mortgage application with Penny. Takes 10 minutes. No credit pull to get started. Franklin, TN. NMLS #111937" />
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .apply-layout {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 48px;
-      align-items: start;
-    }
-    @media (max-width: 900px) {
-      .apply-layout { grid-template-columns: 1fr; }
-      .apply-sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    }
-    @media (max-width: 560px) {
-      .apply-sidebar { grid-template-columns: 1fr; }
-    }
-
-    /* PROGRESS BAR */
-    .progress-bar {
-      display: flex;
-      align-items: center;
-      margin-bottom: 40px;
-      gap: 0;
-    }
-    .prog-step {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex: 1;
-    }
-    .prog-step:last-child { flex: none; }
-    .prog-dot {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 2px solid var(--border);
-      background: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--gray);
-      flex-shrink: 0;
-      transition: all var(--trans);
-      z-index: 1;
-    }
-    .prog-dot.active { background: var(--navy); border-color: var(--navy); color: var(--white); }
-    .prog-dot.done { background: var(--gold); border-color: var(--gold); color: var(--white); }
-    .prog-label { font-size: 0.78rem; font-weight: 600; color: var(--gray); white-space: nowrap; }
-    .prog-label.active { color: var(--navy); }
-    .prog-line { flex: 1; height: 2px; background: var(--border); margin: 0 8px; }
-    .prog-line.done { background: var(--gold); }
-
-    /* FORM STEPS */
-    .step-panel { display: none; }
-    .step-panel.active { display: block; }
-
-    .step-header { margin-bottom: 32px; }
-    .step-header h2 { font-size: 1.6rem; margin-bottom: 6px; }
-    .step-header p { color: var(--gray); font-size: 0.92rem; }
-
-    .form-group { margin-bottom: 20px; }
-    .form-group label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      color: var(--navy);
-      background: var(--cream);
-      outline: none;
-      transition: border-color var(--trans), box-shadow var(--trans);
-      -webkit-appearance: none;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(200,146,42,0.12);
-      background: var(--white);
-    }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
-
-    /* RADIO / CHECKBOX GROUPS */
-    .radio-group {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 10px;
-    }
-    .radio-option { position: relative; }
-    .radio-option input[type="radio"],
-    .radio-option input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
-    .radio-label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 16px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      background: var(--white);
-      transition: border-color var(--trans), background var(--trans);
-    }
-    .radio-label::before {
-      content: '';
-      width: 16px;
-      height: 16px;
-      border: 2px solid var(--border);
-      border-radius: 50%;
-      flex-shrink: 0;
-      transition: all var(--trans);
-    }
-    .radio-option input:checked + .radio-label {
-      border-color: var(--navy);
-      background: rgba(15,31,61,0.04);
-    }
-    .radio-option input:checked + .radio-label::before {
-      background: var(--navy);
-      border-color: var(--navy);
-      box-shadow: inset 0 0 0 3px var(--white);
-    }
-
-    /* NAV BUTTONS */
-    .form-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 36px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-    }
-    .btn-next, .btn-submit {
-      padding: 14px 36px;
-      font-size: 0.95rem;
-    }
-
-    /* SIDEBAR */
-    .sidebar-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      margin-bottom: 16px;
-    }
-    .sidebar-card h4 {
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
-    .sidebar-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .sidebar-card li {
-      font-size: 0.85rem;
-      color: var(--gray);
-      padding-left: 18px;
-      position: relative;
-    }
-    .sidebar-card li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
-
-    /* SUCCESS STATE */
-    .success-state {
-      display: none;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .success-icon {
-      width: 80px;
-      height: 80px;
-      background: rgba(200,146,42,0.12);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      margin: 0 auto 24px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply Now — I Know Penny</title>
+<meta name="description" content="Start your mortgage application with Penny. Takes 10 minutes. No credit pull to get started. Franklin, TN. NMLS #111937.">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div id="nav-placeholder"></div>
+<a href="#main" class="skip-link">Skip to content</a>
 
-  <div class="page-hero">
-    <div class="tag">Apply Now</div>
-    <h1>Let's get you pre-approved.</h1>
-    <p>Takes about 10 minutes. No credit pull yet. Just the basics to get started.</p>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="index.html" class="brand">
+      I KNOW PENNY <span class="brand-mark">NMLS #111937</span>
+    </a>
+    <nav class="topbar-nav">
+      <a href="index.html">Home</a>
+      <a href="lending-programs.html">Loan Programs</a>
+      <a href="resources.html">Resources</a>
+      <a href="get-in-touch.html">Contact</a>
+    </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    <div class="topbar-right">
+      <span class="nmls">Crosspoint Financial · Franklin, TN</span>
+      <a href="tel:6158103988" class="topbar-phone">615-810-3988</a>
+    </div>
   </div>
+</header>
 
-  <section class="section">
-    <div class="container">
-      <div class="apply-layout">
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="lending-programs.html">Loan Programs</a>
+  <a href="resources.html">Resources</a>
+  <a href="get-in-touch.html">Contact</a>
+  <a href="apply.html" class="btn btn-brass">Start Application</a>
+</nav>
 
-        <!-- FORM -->
-        <div>
-          <!-- Progress -->
-          <div class="progress-bar" id="progress-bar">
-            <div class="prog-step"><div class="prog-dot active" id="dot-1">1</div><span class="prog-label active" id="lbl-1">You</span></div>
-            <div class="prog-line" id="line-1"></div>
-            <div class="prog-step"><div class="prog-dot" id="dot-2">2</div><span class="prog-label" id="lbl-2">Property</span></div>
-            <div class="prog-line" id="line-2"></div>
-            <div class="prog-step"><div class="prog-dot" id="dot-3">3</div><span class="prog-label" id="lbl-3">Finances</span></div>
-            <div class="prog-line" id="line-3"></div>
-            <div class="prog-step"><div class="prog-dot" id="dot-4">4</div><span class="prog-label" id="lbl-4">Review</span></div>
+<main id="main">
+  <section class="tight">
+    <div class="wrap form-shell">
+
+      <span class="eyebrow">Apply Now</span>
+      <h1 style="font-size: clamp(28px,4vw,40px); margin-bottom:10px;">Let's get you pre-approved.</h1>
+      <p class="lede" style="margin-bottom:8px;">About 10 minutes. No credit pull yet — just the basics to get started.</p>
+      <p class="mono" style="font-size:12.5px; color:var(--ink-soft); margin-bottom:32px;">22 years originating &middot; over a billion dollars funded, lifetime</p>
+
+      <form id="apply-form" action="https://formspree.io/f/xqejvrgy" method="POST" novalidate>
+
+        <input type="hidden" name="_subject" value="New Application — I Know Penny">
+        <input type="hidden" name="lead_source" value="iknowpenny.com">
+
+        <!-- STEP 1 -->
+        <div class="form-step" data-step="1">
+          <div class="step-track">
+            <div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div>
           </div>
+          <div class="step-label">Step 1 of 4 &middot; <strong>About you</strong></div>
 
-          <form id="apply-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-
-            <!-- STEP 1: About You -->
-            <div class="step-panel active" id="step-1">
-              <div class="step-header">
-                <h2>Tell Penny about yourself</h2>
-                <p>Basic info to get started — nothing scary yet.</p>
-              </div>
-              <div class="form-row">
-                <div class="form-group"><label>First Name *</label><input type="text" name="first_name" required placeholder="Jane" /></div>
-                <div class="form-group"><label>Last Name *</label><input type="text" name="last_name" required placeholder="Smith" /></div>
-              </div>
-              <div class="form-row">
-                <div class="form-group"><label>Email Address *</label><input type="email" name="email" required placeholder="jane@email.com" /></div>
-                <div class="form-group"><label>Phone Number *</label><input type="tel" name="phone" required placeholder="(615) 555-0100" /></div>
-              </div>
-              <div class="form-group">
-                <label>Are you buying with anyone else? (co-borrower)</label>
-                <div class="radio-group">
-                  <div class="radio-option"><input type="radio" name="co_borrower" id="co-no" value="No" checked /><label class="radio-label" for="co-no">Just me</label></div>
-                  <div class="radio-option"><input type="radio" name="co_borrower" id="co-yes" value="Yes" /><label class="radio-label" for="co-yes">Yes, with someone</label></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label>What's your current situation?</label>
-                <select name="current_situation">
-                  <option value="">— Select —</option>
-                  <option>Renting, ready to buy</option>
-                  <option>Own a home, looking to move</option>
-                  <option>Own a home, want to refinance</option>
-                  <option>Living with family/friends</option>
-                </select>
-              </div>
-              <div class="form-nav">
-                <span style="font-size:0.82rem;color:var(--gray)">Step 1 of 4</span>
-                <button type="button" class="btn btn-gold btn-next" onclick="goStep(2)">Continue →</button>
-              </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="fname">First name <span class="req">*</span></label>
+              <input type="text" id="fname" name="first_name" required>
             </div>
-
-            <!-- STEP 2: Property -->
-            <div class="step-panel" id="step-2">
-              <div class="step-header">
-                <h2>About the property</h2>
-                <p>Don't worry if you haven't found a house yet — just give Penny a general idea.</p>
-              </div>
-              <div class="form-group">
-                <label>What are you looking to do?</label>
-                <div class="radio-group">
-                  <div class="radio-option"><input type="radio" name="loan_purpose" id="lp-buy" value="Purchase" checked /><label class="radio-label" for="lp-buy">Buy a home</label></div>
-                  <div class="radio-option"><input type="radio" name="loan_purpose" id="lp-refi" value="Refinance" /><label class="radio-label" for="lp-refi">Refinance</label></div>
-                  <div class="radio-option"><input type="radio" name="loan_purpose" id="lp-inv" value="Investment" /><label class="radio-label" for="lp-inv">Investment property</label></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Property type</label>
-                <select name="property_type">
-                  <option>Single family home</option>
-                  <option>Townhouse / condo</option>
-                  <option>Multi-family (2–4 units)</option>
-                  <option>Not sure yet</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Estimated purchase price (or current home value)</label>
-                <select name="purchase_price">
-                  <option>Under $200,000</option>
-                  <option>$200,000 – $350,000</option>
-                  <option>$350,000 – $500,000</option>
-                  <option>$500,000 – $750,000</option>
-                  <option>$750,000 – $1,000,000</option>
-                  <option>Over $1,000,000</option>
-                  <option>Not sure yet</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Where is the property? (city / state)</label>
-                <input type="text" name="property_location" placeholder="Franklin, TN" />
-              </div>
-              <div class="form-group">
-                <label>Down payment available (rough estimate)</label>
-                <select name="down_payment">
-                  <option>0% — I need a no-down program</option>
-                  <option>3–5%</option>
-                  <option>5–10%</option>
-                  <option>10–20%</option>
-                  <option>20%+</option>
-                  <option>Not sure yet</option>
-                </select>
-              </div>
-              <div class="form-nav">
-                <button type="button" class="btn btn-outline" onclick="goStep(1)">← Back</button>
-                <button type="button" class="btn btn-gold btn-next" onclick="goStep(3)">Continue →</button>
-              </div>
+            <div class="field">
+              <label for="lname">Last name <span class="req">*</span></label>
+              <input type="text" id="lname" name="last_name" required>
             </div>
-
-            <!-- STEP 3: Finances -->
-            <div class="step-panel" id="step-3">
-              <div class="step-header">
-                <h2>A little about your finances</h2>
-                <p>This helps Penny find the right program. No credit pull yet — just ballpark numbers.</p>
-              </div>
-              <div class="form-group">
-                <label>Employment type</label>
-                <div class="radio-group">
-                  <div class="radio-option"><input type="radio" name="employment" id="emp-w2" value="W-2 Employee" checked /><label class="radio-label" for="emp-w2">W-2 Employee</label></div>
-                  <div class="radio-option"><input type="radio" name="employment" id="emp-self" value="Self-Employed" /><label class="radio-label" for="emp-self">Self-Employed</label></div>
-                  <div class="radio-option"><input type="radio" name="employment" id="emp-ret" value="Retired" /><label class="radio-label" for="emp-ret">Retired</label></div>
-                  <div class="radio-option"><input type="radio" name="employment" id="emp-other" value="Other" /><label class="radio-label" for="emp-other">Other</label></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Annual household income (gross, before taxes)</label>
-                <select name="income">
-                  <option>Under $50,000</option>
-                  <option>$50,000 – $75,000</option>
-                  <option>$75,000 – $100,000</option>
-                  <option>$100,000 – $150,000</option>
-                  <option>$150,000 – $200,000</option>
-                  <option>Over $200,000</option>
-                  <option>Prefer not to say</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Estimated credit score range</label>
-                <select name="credit_score">
-                  <option>760+ (Excellent)</option>
-                  <option>720–759 (Very Good)</option>
-                  <option>680–719 (Good)</option>
-                  <option>640–679 (Fair)</option>
-                  <option>580–639 (Needs work)</option>
-                  <option>Below 580</option>
-                  <option>Not sure</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Are you a military veteran or active duty?</label>
-                <div class="radio-group">
-                  <div class="radio-option"><input type="radio" name="veteran" id="vet-yes" value="Yes" /><label class="radio-label" for="vet-yes">Yes</label></div>
-                  <div class="radio-option"><input type="radio" name="veteran" id="vet-no" value="No" checked /><label class="radio-label" for="vet-no">No</label></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Anything else Penny should know? (optional)</label>
-                <textarea name="notes" placeholder="Self-employed for 2 years, have some student debt, looking to close by September..."></textarea>
-              </div>
-              <div class="form-nav">
-                <button type="button" class="btn btn-outline" onclick="goStep(2)">← Back</button>
-                <button type="button" class="btn btn-gold btn-next" onclick="goStep(4)">Review →</button>
-              </div>
+          </div>
+          <div class="field">
+            <label for="email">Email address <span class="req">*</span></label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="field">
+            <label>Are you buying with anyone else? (co-borrower)</label>
+            <div class="radio-pills">
+              <label class="radio-pill"><input type="radio" name="coborrower" value="just_me" checked> Just me</label>
+              <label class="radio-pill"><input type="radio" name="coborrower" value="with_someone"> Yes, with someone</label>
             </div>
-
-            <!-- STEP 4: Review -->
-            <div class="step-panel" id="step-4">
-              <div class="step-header">
-                <h2>Almost there — review &amp; submit</h2>
-                <p>Penny will review your application and reach out within one business day.</p>
-              </div>
-              <div style="background:var(--cream);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:28px">
-                <p style="font-size:0.9rem;color:var(--gray);line-height:1.7">
-                  By submitting this form you agree to be contacted by Penny regarding your mortgage inquiry. Your information is kept private and secure.
-                  Submitting this application does not constitute a loan approval or commitment to lend.
-                  NMLS #111937. Licensed in Tennessee.
-                </p>
-              </div>
-              <div style="background:rgba(200,146,42,0.08);border:1px solid rgba(200,146,42,0.25);border-radius:var(--radius);padding:20px;margin-bottom:28px;display:flex;gap:14px;align-items:flex-start">
-                <span style="font-size:1.4rem">🔒</span>
-                <div>
-                  <strong style="font-size:0.9rem">No hard credit pull yet.</strong>
-                  <p style="font-size:0.85rem;color:var(--gray);margin-top:4px">Your credit score is not affected by submitting this application. Penny will only run credit when you're ready to move forward.</p>
-                </div>
-              </div>
-              <div class="form-nav">
-                <button type="button" class="btn btn-outline" onclick="goStep(3)">← Back</button>
-                <button type="submit" class="btn btn-gold btn-submit">Submit Application 🏠</button>
-              </div>
-            </div>
-
-          </form>
-
-          <!-- SUCCESS -->
-          <div class="success-state" id="success-state">
-            <div class="success-icon">🏠</div>
-            <h2>Application Received!</h2>
-            <p style="color:var(--gray);font-size:1rem;max-width:420px;margin:12px auto 28px">Penny will review it and reach out within one business day. In the meantime, feel free to call: <a href="tel:6158103988" style="color:var(--gold);font-weight:600">615-810-3988</a></p>
-            <a href="resources.html" class="btn btn-outline">Read the Mortgage Guide →</a>
+          </div>
+          <div class="field">
+            <label for="situation">What's your current situation?</label>
+            <select id="situation" name="situation">
+              <option value="">— Select —</option>
+              <option value="renting">Renting, ready to buy</option>
+              <option value="moving">Own a home, looking to move</option>
+              <option value="refi">Own a home, want to refinance</option>
+              <option value="family">Living with family/friends</option>
+            </select>
+          </div>
+          <div class="form-nav">
+            <span></span>
+            <button type="button" class="btn btn-primary next-step">Continue →</button>
           </div>
         </div>
 
-        <!-- SIDEBAR -->
-        <div class="apply-sidebar">
-          <div class="sidebar-card">
-            <h4>What happens next</h4>
-            <ul>
-              <li>Penny reviews your application</li>
-              <li>You get a call within 1 business day</li>
-              <li>He finds the right loan program</li>
-              <li>Pre-approval letter in hand</li>
-              <li>Go make offers with confidence</li>
-            </ul>
+        <!-- STEP 2 -->
+        <div class="form-step" data-step="2" hidden>
+          <div class="step-track">
+            <div class="step-dot done"></div><div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div>
           </div>
-          <div class="sidebar-card">
-            <h4>Why no credit pull?</h4>
-            <p style="font-size:0.85rem;color:var(--gray);line-height:1.6">This initial application is just so Penny can understand your situation. A hard credit pull only happens when you're ready to formally proceed — and Penny will walk you through that step.</p>
+          <div class="step-label">Step 2 of 4 &middot; <strong>About the property</strong></div>
+          <p style="color:var(--ink-soft); font-size:14px; margin-bottom:22px;">Don't worry if you haven't found a house yet — just give Penny a general idea.</p>
+
+          <div class="field">
+            <label>What are you looking to do?</label>
+            <div class="radio-pills">
+              <label class="radio-pill"><input type="radio" name="goal" value="buy" checked> Buy a home</label>
+              <label class="radio-pill"><input type="radio" name="goal" value="refinance"> Refinance</label>
+              <label class="radio-pill"><input type="radio" name="goal" value="investment"> Investment property</label>
+            </div>
           </div>
-          <div class="sidebar-card" style="background:var(--navy);border:none">
-            <h4 style="color:var(--gold)">Prefer to call?</h4>
-            <p style="font-size:0.88rem;color:rgba(255,255,255,0.7);margin-bottom:14px">Skip the form entirely.</p>
-            <a href="tel:6158103988" class="btn btn-gold" style="display:block;text-align:center;font-size:0.9rem">615-810-3988</a>
+          <div class="field">
+            <label for="ptype">Property type</label>
+            <select id="ptype" name="property_type">
+              <option value="single_family">Single family home</option>
+              <option value="condo">Townhouse / condo</option>
+              <option value="multi">Multi-family (2–4 units)</option>
+              <option value="not_sure">Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="price">Estimated purchase price (or current home value)</label>
+            <select id="price" name="price_range">
+              <option value="under_200k">Under $200,000</option>
+              <option value="200_350k">$200,000 – $350,000</option>
+              <option value="350_500k">$350,000 – $500,000</option>
+              <option value="500_750k">$500,000 – $750,000</option>
+              <option value="750k_1m">$750,000 – $1,000,000</option>
+              <option value="over_1m">Over $1,000,000</option>
+              <option value="not_sure">Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="location">Where is the property? (city / state)</label>
+            <input type="text" id="location" name="property_location" placeholder="e.g. Franklin, TN">
+          </div>
+          <div class="field">
+            <label for="downpayment">Down payment available (rough estimate)</label>
+            <select id="downpayment" name="down_payment">
+              <option value="0">0% — I need a no-down program</option>
+              <option value="3_5">3–5%</option>
+              <option value="5_10">5–10%</option>
+              <option value="10_20">10–20%</option>
+              <option value="20_plus">20%+</option>
+              <option value="not_sure">Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-nav">
+            <button type="button" class="btn btn-ghost prev-step">← Back</button>
+            <button type="button" class="btn btn-primary next-step">Continue →</button>
           </div>
         </div>
 
+        <!-- STEP 3 -->
+        <div class="form-step" data-step="3" hidden>
+          <div class="step-track">
+            <div class="step-dot done"></div><div class="step-dot done"></div><div class="step-dot active"></div><div class="step-dot"></div>
+          </div>
+          <div class="step-label">Step 3 of 4 &middot; <strong>Your finances</strong></div>
+          <p style="color:var(--ink-soft); font-size:14px; margin-bottom:22px;">This helps Penny find the right program. No credit pull yet — just ballpark numbers.</p>
+
+          <div class="field">
+            <label>Employment type</label>
+            <div class="radio-pills">
+              <label class="radio-pill"><input type="radio" name="employment" value="w2" checked> W-2 employee</label>
+              <label class="radio-pill"><input type="radio" name="employment" value="self_employed"> Self-employed</label>
+              <label class="radio-pill"><input type="radio" name="employment" value="retired"> Retired</label>
+              <label class="radio-pill"><input type="radio" name="employment" value="other"> Other</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="income">Annual household income (gross, before taxes)</label>
+            <select id="income" name="income_range">
+              <option value="under_50k">Under $50,000</option>
+              <option value="50_75k">$50,000 – $75,000</option>
+              <option value="75_100k">$75,000 – $100,000</option>
+              <option value="100_150k">$100,000 – $150,000</option>
+              <option value="150_200k">$150,000 – $200,000</option>
+              <option value="over_200k">Over $200,000</option>
+              <option value="prefer_not">Prefer not to say</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="credit">Estimated credit score range</label>
+            <select id="credit" name="credit_range">
+              <option value="760_plus">760+ (Excellent)</option>
+              <option value="720_759">720–759 (Very good)</option>
+              <option value="680_719">680–719 (Good)</option>
+              <option value="640_679">640–679 (Fair)</option>
+              <option value="580_639">580–639 (Needs work)</option>
+              <option value="below_580">Below 580</option>
+              <option value="not_sure">Not sure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Are you a military veteran or active duty?</label>
+            <div class="radio-pills">
+              <label class="radio-pill"><input type="radio" name="veteran" value="yes"> Yes</label>
+              <label class="radio-pill"><input type="radio" name="veteran" value="no" checked> No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="notes">Anything else Penny should know? (optional)</label>
+            <input type="text" id="notes" name="notes">
+          </div>
+          <div class="form-nav">
+            <button type="button" class="btn btn-ghost prev-step">← Back</button>
+            <button type="button" class="btn btn-primary next-step">Review →</button>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="form-step" data-step="4" hidden>
+          <div class="step-track">
+            <div class="step-dot done"></div><div class="step-dot done"></div><div class="step-dot done"></div><div class="step-dot active"></div>
+          </div>
+          <div class="step-label">Step 4 of 4 &middot; <strong>Review &amp; submit</strong></div>
+          <p style="color:var(--ink-soft); font-size:14.5px; margin-bottom:22px;">Penny will review your application and reach out within one business day.</p>
+
+          <div class="no-pull-badge">
+            <span class="icon">🔒</span>
+            <p><strong>No hard credit pull yet.</strong> Your credit score is not affected by submitting this application. Penny only runs credit when you're ready to move forward — and will tell you before it happens.</p>
+          </div>
+
+          <div class="privacy-note">
+            By submitting this application you agree to be contacted by Penny regarding your mortgage inquiry. Submitting this application does not constitute a loan approval or commitment to lend. NMLS #111937, licensed in Tennessee, Crosspoint Financial, Inc.<br><br>
+            Your information is transmitted over a secure (HTTPS encrypted) connection and is not shared, sold, or used for any purpose beyond evaluating your mortgage inquiry. See our <a href="privacy.html">privacy policy</a> for full detail.
+          </div>
+
+          <div class="form-nav">
+            <button type="button" class="btn btn-ghost prev-step">← Back</button>
+            <button type="submit" class="btn btn-brass">Submit Application 🏠</button>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- SUCCESS STATE -->
+      <div class="success-state" id="success-state" style="display:none;">
+        <div class="success-mark">✓</div>
+        <h2 style="font-size:28px; margin-bottom:14px;">Application received.</h2>
+        <p class="lede" style="margin:0 auto 28px; text-align:center;">Penny will review it and reach out within one business day. In the meantime, feel free to call: <a href="tel:6158103988" style="color:var(--vault); font-weight:600;">615-810-3988</a></p>
+        <p style="text-align:center; margin-bottom:28px;"><a href="resources.html" style="color:var(--brass); font-weight:600; text-decoration:underline;">Read the Mortgage Guide →</a></p>
+
+        <div style="text-align:left; max-width:480px; margin: 0 auto 28px; background:var(--paper-dim); border:1px solid var(--line); border-radius:4px; padding:24px;">
+          <div class="eyebrow" style="margin-bottom:14px;">What happens next</div>
+          <ol style="padding-left:20px; color:var(--ink-soft); font-size:14.5px; line-height:1.9;">
+            <li>Penny reviews your application</li>
+            <li>You get a call within 1 business day</li>
+            <li>He finds the right loan program for your situation</li>
+            <li>Pre-approval letter in hand</li>
+            <li>Go make offers with confidence</li>
+          </ol>
+        </div>
+
+        <div style="text-align:left; max-width:480px; margin: 0 auto 28px; background:var(--paper-dim); border:1px solid var(--line); border-radius:4px; padding:24px;">
+          <div class="eyebrow" style="margin-bottom:10px;">Why no credit pull?</div>
+          <p style="color:var(--ink-soft); font-size:14.5px;">This initial application is just so Penny can understand your situation. A hard credit pull only happens when you're ready to formally proceed — and Penny walks you through that step first.</p>
+        </div>
+
+        <a href="tel:6158103988" class="btn btn-ghost">Prefer to call? 615-810-3988</a>
       </div>
+
     </div>
   </section>
+</main>
 
-  <div id="footer-placeholder"></div>
-  <script src="js/components.js"></script>
-  <script src="js/main.js"></script>
-  <script>
-    let currentStep = 1;
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <span>I Know Penny &middot; Crosspoint Financial, Inc. &middot; Franklin, TN</span>
+      <span>
+        <a href="index.html">Home</a> &middot;
+        <a href="lending-programs.html">Loan Programs</a> &middot;
+        <a href="resources.html">Resources</a> &middot;
+        <a href="get-in-touch.html">Contact</a> &middot;
+        <a href="privacy.html">Privacy</a>
+      </span>
+    </div>
+    <p class="footer-disclosure">
+      Penny Psencik &middot; NMLS #111937 &middot; Crosspoint Financial, Inc. Equal Housing Opportunity. This is not a commitment to lend. Information submitted is transmitted via secure encrypted connection.
+    </p>
+  </div>
+</footer>
 
-    function goStep(n) {
-      document.getElementById('step-' + currentStep).classList.remove('active');
-      document.getElementById('step-' + n).classList.add('active');
-
-      // Update progress dots
-      for (let i = 1; i <= 4; i++) {
-        const dot = document.getElementById('dot-' + i);
-        const lbl = document.getElementById('lbl-' + i);
-        dot.classList.remove('active','done');
-        lbl.classList.remove('active');
-        if (i < n) { dot.classList.add('done'); dot.textContent = '✓'; }
-        else if (i === n) { dot.classList.add('active'); dot.textContent = i; lbl.classList.add('active'); }
-        else { dot.textContent = i; }
-      }
-      for (let i = 1; i <= 3; i++) {
-        const line = document.getElementById('line-' + i);
-        if (line) line.classList.toggle('done', i < n);
-      }
-
-      currentStep = n;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Form submit
-    const form = document.getElementById('apply-form');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      try {
-        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (res.ok) {
-          form.style.display = 'none';
-          document.getElementById('progress-bar').style.display = 'none';
-          document.getElementById('success-state').style.display = 'block';
-        }
-      } catch(err) { form.submit(); }
-    });
-  </script>
+<script src="js/nav.js"></script>
+<script src="js/apply.js"></script>
 </body>
 </html>

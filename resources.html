@@ -1,312 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources — I Know Penny</title>
-  <meta name="description" content="Everything you need to know about the mortgage process — from organizing documents to getting your keys. Plain English, no fluff." />
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .process-timeline { position: relative; padding-left: 48px; }
-    .process-timeline::before {
-      content: '';
-      position: absolute;
-      left: 16px; top: 8px; bottom: 8px;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--navy), var(--gold));
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 48px;
-    }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-dot {
-      position: absolute;
-      left: -40px;
-      top: 4px;
-      width: 32px;
-      height: 32px;
-      background: var(--navy);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      font-family: 'Playfair Display', serif;
-      font-weight: 900;
-      font-size: 0.85rem;
-      border: 3px solid var(--cream);
-      z-index: 1;
-    }
-    .timeline-item:nth-child(3) .timeline-dot,
-    .timeline-item:nth-child(5) .timeline-dot { background: var(--gold); }
-    .timeline-item h3 { font-size: 1.2rem; margin-bottom: 8px; }
-    .timeline-item p { font-size: 0.95rem; color: var(--gray); }
-
-    .doc-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-    .doc-group {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-    }
-    .doc-group h4 {
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--navy);
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .doc-group ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .doc-group li {
-      font-size: 0.88rem;
-      color: var(--gray);
-      padding-left: 20px;
-      position: relative;
-      line-height: 1.5;
-    }
-    .doc-group li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-weight: 700;
-    }
-
-    .tip-box {
-      background: rgba(200,146,42,0.08);
-      border-left: 4px solid var(--gold);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 20px 24px;
-      margin: 32px 0;
-    }
-    .tip-box .tip-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 6px;
-    }
-    .tip-box p { font-size: 0.92rem; color: var(--navy); margin: 0; }
-
-    .glossary-grid {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 16px;
-    }
-    .glossary-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 18px 20px;
-    }
-    .glossary-item dt {
-      font-weight: 700;
-      font-size: 0.92rem;
-      color: var(--navy);
-      margin-bottom: 4px;
-    }
-    .glossary-item dd {
-      font-size: 0.85rem;
-      color: var(--gray);
-      line-height: 1.55;
-    }
-
-    @media (max-width: 700px) {
-      .doc-grid { grid-template-columns: 1fr; }
-      .glossary-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources — I Know Penny</title>
+<meta name="description" content="The mortgage playbook in plain English. Documents checklist, the process, and a glossary of terms that actually matter. NMLS #111937.">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div id="nav-placeholder"></div>
+<a href="#main" class="skip-link">Skip to content</a>
 
-  <div class="page-hero">
-    <div class="tag">Resources</div>
-    <h1>The mortgage playbook.<br>In plain English.</h1>
-    <p>No jargon, no fluff. Just what you actually need to know to get from "thinking about it" to holding the keys.</p>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="index.html" class="brand">
+      I KNOW PENNY <span class="brand-mark">NMLS #111937</span>
+    </a>
+    <nav class="topbar-nav">
+      <a href="index.html">Home</a>
+      <a href="lending-programs.html">Loan Programs</a>
+      <a href="resources.html">Resources</a>
+      <a href="get-in-touch.html">Contact</a>
+    </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    <div class="topbar-right">
+      <span class="nmls">Crosspoint Financial · Franklin, TN</span>
+      <a href="tel:6158103988" class="topbar-phone">615-810-3988</a>
+      <a href="apply.html" class="btn btn-primary btn-sm">Start Application</a>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="lending-programs.html">Loan Programs</a>
+  <a href="resources.html">Resources</a>
+  <a href="get-in-touch.html">Contact</a>
+  <a href="apply.html" class="btn btn-brass">Start Application</a>
+</nav>
+
+<main id="main">
+
+  <div class="page-header">
+    <div class="wrap">
+      <span class="eyebrow">Resources</span>
+      <h1>The mortgage playbook. In plain English.</h1>
+      <p class="lede">No jargon, no fluff. Just what you actually need to know to get from "thinking about it" to holding the keys.</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:28px;">
+        <a href="#documents" class="btn btn-ghost btn-sm">Documents Checklist</a>
+        <a href="#process" class="btn btn-ghost btn-sm">The Process</a>
+        <a href="#glossary" class="btn btn-ghost btn-sm">Glossary</a>
+        <a href="apply.html" class="btn btn-brass btn-sm">Apply Now →</a>
+      </div>
+    </div>
   </div>
 
-  <section class="section">
-    <div class="container">
+  <!-- DOCUMENTS -->
+  <section id="documents">
+    <div class="wrap hero-grid" style="align-items:start;">
+      <div>
+        <span class="eyebrow">Step 0</span>
+        <h2 style="font-size:32px; margin-bottom:14px;">Get your documents together first.</h2>
+        <p class="lede" style="margin-bottom:36px;">The #1 thing that slows down a mortgage is scrambling for paperwork at the last minute. Do this before anything else and you'll be the smoothest applicant your loan officer has ever seen.</p>
 
-      <!-- QUICK NAV -->
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px" class="fade-in">
-        <a href="#documents" class="btn btn-outline" style="padding:10px 22px;font-size:0.85rem">📋 Documents Checklist</a>
-        <a href="#process" class="btn btn-outline" style="padding:10px 22px;font-size:0.85rem">🗺 The Process</a>
-        <a href="#glossary" class="btn btn-outline" style="padding:10px 22px;font-size:0.85rem">📖 Glossary</a>
-        <a href="apply.html" class="btn btn-gold" style="padding:10px 22px;font-size:0.85rem">Apply Now →</a>
-      </div>
-
-      <!-- TWO COLUMN LAYOUT -->
-      <div style="display:grid;grid-template-columns:1fr 340px;gap:64px;align-items:start">
-
-        <!-- MAIN CONTENT -->
-        <div>
-
-          <!-- DOCUMENTS -->
-          <div id="documents" style="margin-bottom:64px">
-            <div class="tag">Step 0</div>
-            <h2 class="section-title">Get your documents together first</h2>
-            <p style="color:var(--gray);margin-bottom:28px;font-size:0.95rem">The #1 thing that slows down a mortgage is scrambling for paperwork at the last minute. Do this before anything else and you'll be the smoothest applicant your loan officer has ever seen.</p>
-
-            <div class="doc-grid fade-in">
-              <div class="doc-group">
-                <h4>💰 Income</h4>
-                <ul>
-                  <li>Last 30 days of pay stubs</li>
-                  <li>W-2s for the past 2 years</li>
-                  <li>Federal tax returns (past 2 years)</li>
-                  <li>Self-employed? Add business returns too</li>
-                </ul>
-              </div>
-              <div class="doc-group">
-                <h4>🏦 Assets</h4>
-                <ul>
-                  <li>Bank statements (last 2 months)</li>
-                  <li>Investment account statements</li>
-                  <li>401k / retirement account docs</li>
-                  <li>Gift letter (if using gifted funds)</li>
-                </ul>
-              </div>
-              <div class="doc-group">
-                <h4>🪪 Identity</h4>
-                <ul>
-                  <li>Driver's license or passport</li>
-                  <li>Social Security card</li>
-                  <li>Divorce decree (if applicable)</li>
-                  <li>Child support orders (if applicable)</li>
-                </ul>
-              </div>
-              <div class="doc-group">
-                <h4>🏠 Property</h4>
-                <ul>
-                  <li>Purchase agreement (once you have one)</li>
-                  <li>Property appraisal report</li>
-                  <li>HOA documents (if applicable)</li>
-                  <li>Prior year property tax info</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="tip-box">
-              <div class="tip-label">💡 Penny's Tip</div>
-              <p>Scan everything into a single organized folder on your phone or computer before you apply. When your processor asks for a document at 4pm on a Friday, you'll thank yourself.</p>
-            </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+          <div style="border:1px solid var(--line); border-radius:4px; padding:22px;">
+            <div class="eyebrow" style="margin-bottom:14px;">Income</div>
+            <ul style="list-style:none; font-size:14.5px; color:var(--ink-soft); line-height:2;">
+              <li>→ Last 30 days of pay stubs</li>
+              <li>→ W-2s for the past 2 years</li>
+              <li>→ Federal tax returns (past 2 years)</li>
+              <li>→ Self-employed? Add business returns too</li>
+            </ul>
           </div>
-
-          <!-- PROCESS -->
-          <div id="process">
-            <div class="tag">The Journey</div>
-            <h2 class="section-title">What actually happens, step by step</h2>
-            <p style="color:var(--gray);margin-bottom:36px;font-size:0.95rem">Most people go into a mortgage blind. Here's the full map so nothing surprises you.</p>
-
-            <div class="process-timeline fade-in">
-              <div class="timeline-item">
-                <div class="timeline-dot">1</div>
-                <h3>Pre-Qualification</h3>
-                <p>You share basic financial info and Penny gives you a ballpark of what you can borrow. No hard credit pull. No commitment. Just a starting point so you're not falling in love with houses you can't afford.</p>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot">2</div>
-                <h3>Pre-Approval</h3>
-                <p>Now we get serious. You submit your documents, Penny reviews everything, and you get a pre-approval letter with a specific loan amount. Sellers take pre-approved buyers far more seriously — it's essentially proof you're not wasting anyone's time.</p>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot">3</div>
-                <h3>Opening the File</h3>
-                <p>You've found your home and made an offer. Your loan file officially opens. Your dedicated processor collects documents, verifies information, and does an initial review. This is where being organized pays off big.</p>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot">4</div>
-                <h3>Loan Processing</h3>
-                <p>Your processor verifies income, employment history, and credit. An appraisal is ordered to confirm the home's value matches the loan amount. This stage typically takes 1–2 weeks and is mostly happening behind the scenes.</p>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot">5</div>
-                <h3>Underwriting</h3>
-                <p>The underwriter is the final decision-maker. They review everything with a fine-tooth comb — your creditworthiness, the property value, the risk profile. They may request additional documents (called "conditions"). Just respond quickly and don't stress.</p>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot">6</div>
-                <h3>Clear to Close</h3>
-                <p>These are the three best words in real estate. Underwriting approved your loan. You'll receive a Closing Disclosure showing final loan terms, costs, and what you need to bring to closing.</p>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot">🔑</div>
-                <h3>Closing Day</h3>
-                <p>You sign the documents, pay closing costs via certified check or wire, verify your identity, and the title transfers to you. The whole meeting usually takes an hour. At the end — you get the keys. That's it. You're a homeowner.</p>
-              </div>
-            </div>
-
-            <div class="tip-box" style="margin-top:36px">
-              <div class="tip-label">💡 Penny's Tip</div>
-              <p>Don't open new credit cards, buy a car, or change jobs between pre-approval and closing. Even if you technically can afford it. Underwriters re-verify your finances right before closing and surprises at that stage are not fun for anyone.</p>
-            </div>
+          <div style="border:1px solid var(--line); border-radius:4px; padding:22px;">
+            <div class="eyebrow" style="margin-bottom:14px;">Assets</div>
+            <ul style="list-style:none; font-size:14.5px; color:var(--ink-soft); line-height:2;">
+              <li>→ Bank statements (last 2 months)</li>
+              <li>→ Investment account statements</li>
+              <li>→ 401k / retirement account docs</li>
+              <li>→ Gift letter (if using gifted funds)</li>
+            </ul>
           </div>
-
-        </div>
-
-        <!-- SIDEBAR -->
-        <div style="position:sticky;top:90px;display:flex;flex-direction:column;gap:20px">
-          <div class="card" style="background:var(--navy);border:none">
-            <h3 style="color:var(--white);font-size:1.1rem;margin-bottom:10px">Ready to start?</h3>
-            <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;margin-bottom:18px">The application takes about 10 minutes. No credit pull to get going.</p>
-            <a href="apply.html" class="btn btn-gold" style="width:100%;text-align:center;display:block">Apply Now</a>
+          <div style="border:1px solid var(--line); border-radius:4px; padding:22px;">
+            <div class="eyebrow" style="margin-bottom:14px;">Identity</div>
+            <ul style="list-style:none; font-size:14.5px; color:var(--ink-soft); line-height:2;">
+              <li>→ Driver's license or passport</li>
+              <li>→ Social Security card</li>
+              <li>→ Divorce decree (if applicable)</li>
+              <li>→ Child support orders (if applicable)</li>
+            </ul>
           </div>
-          <div class="card">
-            <h3 style="font-size:1rem;margin-bottom:10px">Have a question first?</h3>
-            <p style="font-size:0.85rem;color:var(--gray);margin-bottom:14px">Penny picks up the phone. Seriously.</p>
-            <a href="tel:6158103988" class="btn btn-outline" style="width:100%;text-align:center;display:block;font-size:0.88rem">📞 615-810-3988</a>
-          </div>
-          <div class="card" style="background:rgba(200,146,42,0.07);border-color:rgba(200,146,42,0.25)">
-            <h4 style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:10px">Typical Timeline</h4>
-            <div style="display:flex;flex-direction:column;gap:8px">
-              <div style="display:flex;justify-content:space-between;font-size:0.85rem"><span style="color:var(--gray)">Pre-approval</span><strong>1–3 days</strong></div>
-              <div style="display:flex;justify-content:space-between;font-size:0.85rem"><span style="color:var(--gray)">Processing</span><strong>1–2 weeks</strong></div>
-              <div style="display:flex;justify-content:space-between;font-size:0.85rem"><span style="color:var(--gray)">Underwriting</span><strong>3–7 days</strong></div>
-              <div style="display:flex;justify-content:space-between;font-size:0.85rem"><span style="color:var(--gray)">Closing</span><strong>1 hour</strong></div>
-              <div style="border-top:1px solid var(--border);margin-top:4px;padding-top:8px;display:flex;justify-content:space-between;font-size:0.85rem"><span style="color:var(--gray)">Total (avg)</span><strong style="color:var(--gold)">30–45 days</strong></div>
-            </div>
+          <div style="border:1px solid var(--line); border-radius:4px; padding:22px;">
+            <div class="eyebrow" style="margin-bottom:14px;">Property</div>
+            <ul style="list-style:none; font-size:14.5px; color:var(--ink-soft); line-height:2;">
+              <li>→ Purchase agreement (once you have one)</li>
+              <li>→ Property appraisal report</li>
+              <li>→ HOA documents (if applicable)</li>
+            </ul>
           </div>
         </div>
-
       </div>
 
-      <!-- GLOSSARY -->
-      <div id="glossary" style="margin-top:72px" class="fade-in">
-        <div class="tag">Glossary</div>
-        <h2 class="section-title">Words they'll use that you should know</h2>
-        <p style="color:var(--gray);margin-bottom:32px;font-size:0.95rem">The mortgage world loves jargon. Here are the ones that actually matter.</p>
-        <dl class="glossary-grid stagger">
-          <div class="glossary-item"><dt>APR</dt><dd>Annual Percentage Rate — the true annual cost of your loan including fees. Always compare APRs, not just interest rates.</dd></div>
-          <div class="glossary-item"><dt>PMI</dt><dd>Private Mortgage Insurance — charged when you put less than 20% down on a conventional loan. Goes away once you hit 20% equity.</dd></div>
-          <div class="glossary-item"><dt>DTI</dt><dd>Debt-to-Income ratio — your monthly debt payments divided by gross income. Most lenders want this under 43%.</dd></div>
-          <div class="glossary-item"><dt>LTV</dt><dd>Loan-to-Value — your loan amount compared to the home's appraised value. Lower LTV = better rates and less risk for the lender.</dd></div>
-          <div class="glossary-item"><dt>Escrow</dt><dd>An account where your lender holds money for property taxes and insurance. Part of your monthly payment goes here automatically.</dd></div>
-          <div class="glossary-item"><dt>Points</dt><dd>Upfront fees paid to lower your interest rate. One point = 1% of the loan. Sometimes worth it, sometimes not — Penny will do the math.</dd></div>
-          <div class="glossary-item"><dt>Amortization</dt><dd>The schedule of how your payments are split between principal and interest over the life of the loan. Early payments are mostly interest.</dd></div>
-          <div class="glossary-item"><dt>Clear to Close</dt><dd>The three best words in real estate. Means underwriting approved everything and you're ready to sign and get your keys.</dd></div>
-        </dl>
+      <div class="hero-side">
+        <div style="background:var(--vault); color:var(--paper); border-radius:4px; padding:22px; margin-bottom:18px;">
+          <div class="eyebrow on-dark" style="margin-bottom:8px;">Ready to start?</div>
+          <p style="font-size:14px; opacity:0.85; margin-bottom:16px;">The application takes about 10 minutes. No credit pull to get going.</p>
+          <a href="apply.html" class="btn btn-brass btn-block">Apply Now</a>
+        </div>
+        <div style="border:1px solid var(--line); border-radius:4px; padding:20px; margin-bottom:18px;">
+          <div class="eyebrow" style="margin-bottom:6px;">Have a question first?</div>
+          <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:14px;">Penny picks up the phone. Seriously.</p>
+          <a href="tel:6158103988" class="btn btn-ghost btn-sm btn-block">615-810-3988</a>
+        </div>
+        <div class="limit-note">
+          <strong style="display:block; color:var(--brass); text-transform:uppercase; font-size:11.5px; letter-spacing:0.08em; margin-bottom:10px;">Typical Timeline</strong>
+          <div class="hero-side-row"><span class="label">Pre-approval</span><span class="value">1–3 days</span></div>
+          <div class="hero-side-row"><span class="label">Processing</span><span class="value">1–2 weeks</span></div>
+          <div class="hero-side-row"><span class="label">Underwriting</span><span class="value">3–7 days</span></div>
+          <div class="hero-side-row"><span class="label">Closing</span><span class="value">1 hour</span></div>
+          <div class="hero-side-row"><span class="label"><strong>Total (avg)</strong></span><span class="value" style="color:var(--brass);">30–45 days</span></div>
+        </div>
       </div>
-
     </div>
   </section>
 
-  <div id="footer-placeholder"></div>
-  <script src="js/components.js"></script>
-  <script src="js/main.js"></script>
+  <hr class="ledger-rule wrap">
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap hero-grid" style="align-items:start;">
+      <div>
+        <span class="eyebrow">The Process</span>
+        <h2 style="font-size:32px; margin-bottom:14px;">Most people go into a mortgage blind.</h2>
+        <p class="lede" style="margin-bottom:36px;">Here's the full map so nothing surprises you.</p>
+
+        <div style="border-left:2px solid var(--line); padding-left:28px;">
+
+          <div style="margin-bottom:34px; position:relative;">
+            <span class="process-num" style="position:absolute; left:-44px; background:var(--vault); color:var(--paper); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px;">1</span>
+            <h3 style="font-size:19px; margin-bottom:8px;">Pre-Qualification</h3>
+            <p style="color:var(--ink-soft); font-size:14.5px;">You share basic financial info and Penny gives you a ballpark of what you can borrow. No hard credit pull. No commitment. Just a starting point so you're not falling in love with houses you can't afford.</p>
+          </div>
+
+          <div style="margin-bottom:34px; position:relative;">
+            <span class="process-num" style="position:absolute; left:-44px; background:var(--vault); color:var(--paper); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px;">2</span>
+            <h3 style="font-size:19px; margin-bottom:8px;">Pre-Approval</h3>
+            <p style="color:var(--ink-soft); font-size:14.5px;">Now we get serious. You submit your documents, Penny reviews everything, and you get a pre-approval letter with a specific loan amount. Sellers take pre-approved buyers far more seriously — it's essentially proof you're not wasting anyone's time.</p>
+          </div>
+
+          <div style="margin-bottom:34px; position:relative;">
+            <span class="process-num" style="position:absolute; left:-44px; background:var(--brass); color:var(--ink); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px;">3</span>
+            <h3 style="font-size:19px; margin-bottom:8px;">Opening the File</h3>
+            <p style="color:var(--ink-soft); font-size:14.5px;">You've found your home and made an offer. Your loan file officially opens. Your dedicated processor collects documents, verifies information, and does an initial review. This is where being organized pays off big.</p>
+          </div>
+
+          <div style="margin-bottom:34px; position:relative;">
+            <span class="process-num" style="position:absolute; left:-44px; background:var(--vault); color:var(--paper); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px;">4</span>
+            <h3 style="font-size:19px; margin-bottom:8px;">Loan Processing</h3>
+            <p style="color:var(--ink-soft); font-size:14.5px;">Your processor verifies income, employment history, and credit. An appraisal is ordered to confirm the home's value matches the loan amount. This stage typically takes 1–2 weeks and is mostly happening behind the scenes.</p>
+          </div>
+
+          <div style="margin-bottom:34px; position:relative;">
+            <span class="process-num" style="position:absolute; left:-44px; background:var(--brass); color:var(--ink); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px;">5</span>
+            <h3 style="font-size:19px; margin-bottom:8px;">Underwriting</h3>
+            <p style="color:var(--ink-soft); font-size:14.5px;">The underwriter is the final decision-maker. They review everything with a fine-tooth comb — your creditworthiness, the property value, the risk profile. They may request additional documents (called "conditions"). Just respond quickly and don't stress.</p>
+          </div>
+
+          <div style="margin-bottom:34px; position:relative;">
+            <span class="process-num" style="position:absolute; left:-44px; background:var(--vault); color:var(--paper); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px;">6</span>
+            <h3 style="font-size:19px; margin-bottom:8px;">Clear to Close</h3>
+            <p style="color:var(--ink-soft); font-size:14.5px;">These are the three best words in real estate. Underwriting approved your loan. You'll receive a Closing Disclosure showing final loan terms, costs, and what you need to bring to closing.</p>
+          </div>
+
+          <div style="position:relative;">
+            <span class="process-num" style="position:absolute; left:-44px; background:var(--ink); color:var(--brass-light); width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px;">🔑</span>
+            <h3 style="font-size:19px; margin-bottom:8px;">Closing Day</h3>
+            <p style="color:var(--ink-soft); font-size:14.5px;">You sign the documents, pay closing costs via certified check or wire, verify your identity, and the title transfers to you. The whole meeting usually takes an hour. At the end — you get the keys. That's it. You're a homeowner.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div style="background:var(--vault); color:var(--paper); border-radius:4px; padding:22px; margin-bottom:18px;">
+          <div class="eyebrow on-dark" style="margin-bottom:8px;">Ready to start?</div>
+          <p style="font-size:14px; opacity:0.85; margin-bottom:16px;">The application takes about 10 minutes. No credit pull to get going.</p>
+          <a href="apply.html" class="btn btn-brass btn-block">Apply Now</a>
+        </div>
+        <div style="border:1px solid var(--line); border-radius:4px; padding:20px; margin-bottom:18px;">
+          <div class="eyebrow" style="margin-bottom:6px;">Have a question first?</div>
+          <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:14px;">Penny picks up the phone. Seriously.</p>
+          <a href="tel:6158103988" class="btn btn-ghost btn-sm btn-block">615-810-3988</a>
+        </div>
+        <div class="limit-note">
+          <strong style="display:block; color:var(--brass); text-transform:uppercase; font-size:11.5px; letter-spacing:0.08em; margin-bottom:10px;">Typical Timeline</strong>
+          <div class="hero-side-row"><span class="label">Pre-approval</span><span class="value">1–3 days</span></div>
+          <div class="hero-side-row"><span class="label">Processing</span><span class="value">1–2 weeks</span></div>
+          <div class="hero-side-row"><span class="label">Underwriting</span><span class="value">3–7 days</span></div>
+          <div class="hero-side-row"><span class="label">Closing</span><span class="value">1 hour</span></div>
+          <div class="hero-side-row"><span class="label"><strong>Total (avg)</strong></span><span class="value" style="color:var(--brass);">30–45 days</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap" style="margin-top:8px;">
+      <div class="trap-note">
+        <strong>Worth knowing</strong>
+        Underwriting verifies your finances right before closing — even if you technically can afford it on paper. Don't open new credit, change jobs, or make large undocumented deposits between pre-approval and closing. Surprises at that stage are not fun for anyone.
+      </div>
+    </div>
+  </section>
+
+  <hr class="ledger-rule wrap">
+
+  <!-- GLOSSARY -->
+  <section id="glossary">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Glossary</span>
+        <h2>Words they'll use that you should know.</h2>
+        <p>The mortgage world loves jargon. Here are the ones that actually matter.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+        <div style="border:1px solid var(--line); border-radius:4px; padding:22px;">
+          <h3 style="font-size:17px; margin-bottom:8px;">APR</h3>
+          <p style="font-size:14px; color:var(--ink-soft);">Annual Percentage Rate — the true annual cost of your loan including fees. Always compare APRs, not just interest rates.</p>
+        </div>
+        <div style="border:1px solid var(--line); border-radius:4px; padding:22px;">
+          <h3 style="font-size:17px; margin-bottom:8px;">PMI</h3>
+          <p style="font-size:14px; color:var(--ink-soft);">Private Mortgage Insurance — charged on most conventional loans with less than 20% down. You can request removal at 80% loan-to-value; it auto-cancels at 78% based on your original payment schedule.</p>
+        </div>
+        <div style="border:1px solid var(--line); border-radius:4px; padding:22px;">
+          <h3 style="font-size:17px; margin-bottom:8px;">DTI</h3>
+          <p style="font-size:14px; color:var(--ink-soft);">Debt-to-Income ratio — your monthly debt payments divided by gross income. Most lenders want this under 43%.</p>
+        </div>
+        <div style="border:1px solid var(--line); border-radius:4px; padding:22px;">
+          <h3 style="font-size:17px; margin-bottom:8px;">LTV</h3>
+          <p style="font-size:14px; color:var(--ink-soft);">Loan-to-Value — your loan amount compared to the home's appraised value. Lower LTV means better rates and less risk for the lender.</p>
+        </div>
+        <div style="border:1px solid var(--line); border-radius:4px; padding:22px;">
+          <h3 style="font-size:17px; margin-bottom:8px;">Escrow</h3>
+          <p style="font-size:14px; color:var(--ink-soft);">An account where your servicer holds money for property taxes and insurance. Part of your monthly payment goes here automatically — or you can ask about waiving it if you're putting 20%+ down.</p>
+        </div>
+        <div style="border:1px solid var(--line); border-radius:4px; padding:22px;">
+          <h3 style="font-size:17px; margin-bottom:8px;">Points</h3>
+          <p style="font-size:14px; color:var(--ink-soft);">Upfront fees paid to lower your interest rate. One point = 1% of the loan. Sometimes worth it, sometimes not — Penny will do the math with you.</p>
+        </div>
+        <div style="border:1px solid var(--line); border-radius:4px; padding:22px;">
+          <h3 style="font-size:17px; margin-bottom:8px;">Amortization</h3>
+          <p style="font-size:14px; color:var(--ink-soft);">The schedule of how your payments split between principal and interest over the life of the loan. Early payments are mostly interest.</p>
+        </div>
+        <div style="border:1px solid var(--line); border-radius:4px; padding:22px;">
+          <h3 style="font-size:17px; margin-bottom:8px;">Clear to Close</h3>
+          <p style="font-size:14px; color:var(--ink-soft);">The three best words in real estate. Means underwriting approved everything and you're ready to sign and get your keys.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <span>I Know Penny &middot; Crosspoint Financial, Inc. &middot; Franklin, TN</span>
+      <span>
+        <a href="index.html">Home</a> &middot;
+        <a href="lending-programs.html">Loan Programs</a> &middot;
+        <a href="get-in-touch.html">Contact</a> &middot;
+        <a href="apply.html">Apply</a> &middot;
+        <a href="privacy.html">Privacy</a>
+      </span>
+    </div>
+    <p class="footer-disclosure">
+      Penny Psencik &middot; NMLS #111937 &middot; Crosspoint Financial, Inc. Equal Housing Opportunity. This is general information, not financial advice — every situation is different, so confirm specifics with Penny directly.
+    </p>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
 </body>
 </html>
